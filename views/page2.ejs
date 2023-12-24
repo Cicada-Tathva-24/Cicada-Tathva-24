@@ -1,0 +1,33 @@
+
+
+<% if(pass){ %>
+<body style="background-image: url('https://img.freepik.com/free-vector/beige-leafy-watercolor-background-vector_53876-136491.jpg?w=996&t=st=1703360420~exp=1703361020~hmac=dc613830600ecedc9797ee5f2f3191e8615bf01305a47eccc093fb90dc9e4faa');
+background-size: cover; background-repeat: no-repeat; 
+background-position: center;">
+    
+
+    <div class="container bg-light text-center d-flex flex-column justify-content-center align-items-center"
+    style="width: 50vw;
+    height: 40vh;
+    border: 1px solid black;
+     margin: 25vh 25vw;
+     border-radius: 40px;
+     box-shadow: 5px 5px 10px grey;">
+    <a href="https://www.dropbox.com/scl/fi/1kscoda9lu8wb1nn7mi30/testnote.txt?rlkey=1ayrj22fuepjeu87d3g2jy3dp&dl=1" class="btn btn-success">Download Here</a>
+    
+    <form class="m-4">
+        <input type="text" name="key1" placeholder="Link modification">
+        <button onclick="clicked()" class="btn btn-secondary" >Submit</button>
+    </form>
+</div>
+</body>
+<script>
+function clicked(){
+alert("Look above the page");
+}
+
+</script>
+
+<% }else{ %>
+<h1>Invalid attempt</h1>
+    <% } %>

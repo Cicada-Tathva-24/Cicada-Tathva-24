@@ -1,0 +1,30 @@
+<body style="background-color: rgb(58, 58, 58);">
+
+
+  <div class="container bg-light"
+    style="width: 50vw;
+    height: 40vh;
+    border: 1px solid black;
+     margin: 25vh 25vw;
+     border-radius: 40px;
+     box-shadow: 5px 5px 10px grey;">
+     
+    <h1 class="text-center mt-5">
+      <%= user.name %> Profile
+    </h1>
+
+    <div class="container p-4 text-center">
+      <h3>Lorem ipsum dolor sit amet.</h3><br>
+      <form action="/profile" method="post">
+        <%# <input type="text" name="key1"> %>
+          <% if(typeof sts !=='undefined' ){ %>
+            <h3>Tasks completed.</h3>
+            <input type="submit" class="btn btn-secondary" value="Start Again">
+            <% }else{ %>
+              <input type="submit" class="btn btn-secondary" value="Start">
+
+              <% } %>
+      </form>
+    </div>
+  </div>
+</body>
