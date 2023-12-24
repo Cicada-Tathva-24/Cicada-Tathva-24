@@ -9,7 +9,7 @@ const passportconfig=require('./passport-config');
 const methodOverride=require('method-override');
 var bodyParser = require('body-parser');
 var localStorage = require('web-storage')().localStorage;
-
+require('dotenv').config();
 
 var ejsLayouts = require("express-ejs-layouts");
 //const authRoutes=require('./routes/auth-routes_oauth')
@@ -134,45 +134,30 @@ app.post('/profile',async (req,res)=>{
   //console.log(req.user);
   var date1=new Date();
  
-//   var log=new Log({
-//     email:req.user.email,
-//     start:date1
-// })
-//  console.log(log);
-//  await log.save().then(()=>{
-//     console.log('Email created');
-//     res.redirect('/page1');
-// }).catch((err) => {
-//   console.log("err here"+err);
-//   res.send(err.message);
-// });
+  var log=new Log({
+    email:req.user.email,
+    start:date1
+})
+ console.log(log);
+ await log.save().then(()=>{
+    console.log('Email created');
+    res.redirect('/page1');
+}).catch((err) => {
+  console.log("err here"+err);
+  res.send(err.message);
+});
 
 
 // var key=req.body.key1;
 //   if(key=='page2'){
-res.redirect('/page1');
+//res.redirect('/page1');
   // }
     
 });
 
-// app.post('/page2topage3',async (req,res)=>{
-//   console.log('Page 4 '+req.user.email);
-//   const myDate4= new Date();
-  
-//   try {
-//     const doc = await Log.findOneAndUpdate({ email: req.user.email }, { level3: myDate4 }, { new: true });
-//     console.log(`Doc 3 is ${doc}`);
-//     res.redirect('/profile');
-//   } catch (err) {
-//     console.log("Something wrong when updating data!");
-//   }
-
-
-// })
-
 app.post('/page4',async (req,res)=>{
 var key=req.body.key4;
-  if(key=='page4'){
+  if(key==process.env.KEY_4){
   const myDate4= new Date();
   
   try {
@@ -194,7 +179,7 @@ var key=req.body.key4;
 
 app.post('/page5',async (req,res)=>{
   var key=req.body.key5;
-    if(key=='page5'){
+    if(key==process.env.KEY_5){
     const myDate5= new Date();
     
     try {
