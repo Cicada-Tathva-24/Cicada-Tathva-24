@@ -15,7 +15,7 @@ var ejsLayouts = require("express-ejs-layouts");
 //const authRoutes=require('./routes/auth-routes_oauth')
 app.use(bodyParser.urlencoded({ extended: false }));
 const session=require('express-session');
-
+app.use(express.static('public'));
 
 connection();
 app.use(express.urlencoded({extended:false}));
@@ -88,11 +88,12 @@ app.get('/page2',checkAuthenticated,(req,res)=>{
 })
 
 app.get('/page2topage3',checkAuthenticated,(req,res)=>{
-res.redirect('/page4');
+res.redirect('/page3');
 });
 
-app.get('/page4',checkAuthenticated,async (req,res)=>{
-  console.log('Page 4 '+req.user.email);
+
+app.get('/page3',checkAuthenticated,async (req,res)=>{
+  console.log('Page 3 '+req.user.email);
   const myDate3= new Date();
   
   try {
@@ -101,6 +102,14 @@ app.get('/page4',checkAuthenticated,async (req,res)=>{
   } catch (err) {
     console.log("Something wrong when updating data!");
   }
+
+  res.render('page3',{user:req.user,pass:'#@!2233'});
+  
+})
+
+app.get('/page4',checkAuthenticated,async (req,res)=>{
+  console.log('Page 4 '+req.user.email);
+  const myDate3= new Date();
 
   res.render('page4',{user:req.user,pass:'9957'});
   
@@ -155,6 +164,29 @@ app.post('/profile',async (req,res)=>{
     
 });
 
+app.post('/page3',async (req,res)=>{
+  var key=req.body.key3;
+    if(key==process.env.KEY_3){
+    const myDate3= new Date();
+    
+    try {
+      const doc = await Log.findOneAndUpdate({ email: req.user.email }, { level3: myDate3 }, { new: true });
+      console.log(`Doc level 3 is ${doc}`);
+      res.redirect('/page4');
+    } catch (err) {
+      console.log("Something wrong when updating data!");
+    }
+  
+  
+     
+    }
+    else{
+    
+      res.render('page4',{error:'Wrong key',user:req.user,pass:'9957'});
+    }
+  });
+  
+
 app.post('/page4',async (req,res)=>{
 var key=req.body.key4;
   if(key==process.env.KEY_4){
@@ -176,6 +208,8 @@ var key=req.body.key4;
     res.render('page4',{error:'Wrong key',user:req.user,pass:'9957'});
   }
 });
+
+
 
 app.post('/page5',async (req,res)=>{
   var key=req.body.key5;
@@ -243,6 +277,6 @@ function checkAuthenticated(req, res, next) {
     next()
   }
 
-app.listen(4000,()=>{
-    console.log("Server listening on port 4000");
+app.listen(2000,()=>{
+    console.log("Server listening on port 2000");
 })
