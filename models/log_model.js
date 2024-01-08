@@ -18,7 +18,7 @@ const logSchema = new mongoose.Schema({
     },
     level3: {
         type: Date,
-        default:Date.now()
+        //default:Date.now()
     },
     level4: {
         type: Date,

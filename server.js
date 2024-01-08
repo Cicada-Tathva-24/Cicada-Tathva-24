@@ -37,6 +37,41 @@ app.set('layout','layout.ejs');
 
 
 //GET
+app.get('/admin',async (req,res)=>{
+  var sel = await Log.find({},{_id:0,email:1,start:1,level1:1,level2:1,level3:1,level4:1,level5:1},{lean: true});
+  let i=0,t_end;
+  var res_arr=[];
+  while (i < sel.length){
+    let one=sel[i],lvl=0;
+
+    for(var el in one){
+      
+
+      console.log("Key:",el);
+      console.log("Vlaue:",one[el]);
+      t_end=one[el];
+      console.log("End:key",el);
+      console.log("End:",t_end);
+      lvl++;
+      // break; 
+    }
+    console.log(i," ",one);
+    let t_st=sel[i]["start"].getTime();
+    //let t_end=new Date().getTime();
+    //let t_end=sel[i]["level5"].getTime();
+    res_arr[i]={mail:one["email"],time:t_end-t_st,level:lvl-2};
+    //console.log(t_end-t_st);
+    i++;
+}
+res_arr.sort((a, b) => {
+  return a.time - b.time;
+});
+
+console.log(res_arr);
+  //res.send(sel);
+  res.render('../views_rem/admin',{res_arr,layout:'../views_rem/admin'});
+})
+
 app.get('/',(req,res)=>{
     res.render('../views_rem/home',{user:req.user,layout:'../views_rem/home'});
 })
@@ -75,14 +110,6 @@ app.get('/page2',checkAuthenticated,(req,res)=>{
 //  var dateorg=new Date(datestr);
 
   console.log("Page 2 start "+myDate2.toLocaleTimeString());
-  //console.log(typeof(dateorg));
-
-  //const time1=localStorage.get("dt1").toTimeString();
-  //console.log("Time from second "+time1);
-  //var timedif=myDate2.getTime()-time1;
-  //console.log(`Diff in time ${timedif}`);
-
-  //console.log('Page 2 '+req.user.email);
   res.render('page2',{user:req.user,pass:'#@!23'});
   
 })
@@ -277,6 +304,6 @@ function checkAuthenticated(req, res, next) {
     next()
   }
 
-app.listen(2000,()=>{
-    console.log("Server listening on port 2000");
+app.listen(5432,()=>{
+    console.log("Server listening on port 5432");
 })
