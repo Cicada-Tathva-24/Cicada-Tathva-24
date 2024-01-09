@@ -174,7 +174,12 @@ app.post('/profile',async (req,res)=>{
     email:req.user.email,
     start:date1
 })
- console.log(log);
+
+
+ let logfind=await Log.findOne({email:req.user.email});
+ console.log("Found one",logfind);
+
+ if(!logfind){
  await log.save().then(()=>{
     console.log('Email created');
     res.redirect('/page1');
@@ -182,6 +187,11 @@ app.post('/profile',async (req,res)=>{
   console.log("err here"+err);
   res.send(err.message);
 });
+}
+else{
+  console.log(req.user.email,"Exists");
+  res.redirect('/page1');
+}
 
 
 // var key=req.body.key1;
