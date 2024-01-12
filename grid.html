@@ -13,8 +13,16 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: aquamarine;
 }
-
+.box{
+    height: 50vh;
+    width: 60vw;
+    background: rgba(255,255,255,0.3);
+-webkit-backdrop-filter: blur(15px);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255,255,255,0.15);
+}
 .grid {
     height: 50vh;
     width: 50vw;
@@ -23,11 +31,12 @@ body{
       repeating-linear-gradient(#5e5d5d 0 1px, transparent 2px 100%),
       repeating-linear-gradient(90deg, #646363 0 1px, transparent 2px 100%);
     background-size: 71px 71px;
+    
 }
 
 </style>
 <body>
     <h1>TEXT</h1>
-    <div class="grid"></div>
+    <div class="box"></div>
 </body>
 </html>

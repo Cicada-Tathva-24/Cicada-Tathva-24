@@ -57,8 +57,6 @@ app.get('/admin',async (req,res)=>{
     }
     console.log(i," ",one);
     let t_st=sel[i]["start"].getTime();
-    //let t_end=new Date().getTime();
-    //let t_end=sel[i]["level5"].getTime();
     res_arr[i]={mail:one["email"],time:t_end-t_st,level:lvl-2};
     //console.log(t_end-t_st);
     i++;
@@ -122,7 +120,12 @@ res.redirect('/page3');
 app.get('/page3',checkAuthenticated,async (req,res)=>{
   console.log('Page 3 '+req.user.email);
   const myDate3= new Date();
-  
+  let logfind=await Log.findOne({email:req.user.email});
+
+  if (logfind && logfind.level2) {
+    console.log(`Level2 already registered for ${req.user.email}`);
+    res.render('page3',{user:req.user,pass:'#@!2233'});  } 
+  else {
   try {
     const doc = await Log.findOneAndUpdate({ email: req.user.email }, { level2: myDate3 }, { new: true });
     console.log("Doc for level 2 " + doc);
@@ -131,8 +134,8 @@ app.get('/page3',checkAuthenticated,async (req,res)=>{
   }
 
   res.render('page3',{user:req.user,pass:'#@!2233'});
-  
-})
+}
+});
 
 app.get('/page4',checkAuthenticated,async (req,res)=>{
   console.log('Page 4 '+req.user.email);
@@ -205,7 +208,13 @@ app.post('/page3',async (req,res)=>{
   var key=req.body.key3;
     if(key==process.env.KEY_3){
     const myDate3= new Date();
-    
+    let logfind=await Log.findOne({email:req.user.email});
+
+    if (logfind && logfind.level3) {
+    console.log(`Level3 already registered for ${req.user.email}`);
+    res.redirect('/page4');
+  } 
+  else {
     try {
       const doc = await Log.findOneAndUpdate({ email: req.user.email }, { level3: myDate3 }, { new: true });
       console.log(`Doc level 3 is ${doc}`);
@@ -214,7 +223,7 @@ app.post('/page3',async (req,res)=>{
       console.log("Something wrong when updating data!");
     }
   
-  
+  }
      
     }
     else{
@@ -228,7 +237,13 @@ app.post('/page4',async (req,res)=>{
 var key=req.body.key4;
   if(key==process.env.KEY_4){
   const myDate4= new Date();
-  
+  let logfind=await Log.findOne({email:req.user.email});
+
+  if (logfind && logfind.level4) {
+    console.log(`Level4 already registered for ${req.user.email}`);
+    res.redirect('/page5');
+  } 
+  else {
   try {
     const doc = await Log.findOneAndUpdate({ email: req.user.email }, { level4: myDate4 }, { new: true });
     console.log(`Doc level 4 is ${doc}`);
@@ -239,7 +254,7 @@ var key=req.body.key4;
 
 
    
-  }
+  }}
   else{
   
     res.render('page4',{error:'Wrong key',user:req.user,pass:'9957'});
@@ -252,7 +267,12 @@ app.post('/page5',async (req,res)=>{
   var key=req.body.key5;
     if(key==process.env.KEY_5){
     const myDate5= new Date();
-    
+    let logfind=await Log.findOne({email:req.user.email});
+
+    if (logfind && logfind.level5) {
+      console.log(`Level5 already registered for ${req.user.email}`);
+      res.render('profile',{user:req.user,sts:'Completed'});    } 
+    else {
     try {
       const doc = await Log.findOneAndUpdate({ email: req.user.email }, { level5: myDate5 }, { new: true });
       console.log(`Doc level 5 is ${doc}`);
@@ -262,7 +282,7 @@ app.post('/page5',async (req,res)=>{
     }
   
   
-      
+  }
     }
     else{
     
@@ -275,7 +295,13 @@ app.post('/page1',async (req,res)=>{
 
   console.log('Page 1 Post '+req.user.email);
   const myDate1= new Date();
-  
+  let logfind=await Log.findOne({email:req.user.email});
+
+  if (logfind && logfind.level1) {
+    console.log(`Level1 already registered for ${req.user.email}`);
+    res.redirect('/page2');
+  } 
+  else {
   try {
     const doc = await Log.findOneAndUpdate({ email: req.user.email }, { level1: myDate1 }, { new: true });
     console.log(`Doc Page1 is ${doc}`);
@@ -285,7 +311,7 @@ app.post('/page1',async (req,res)=>{
     res.status(500).send('An error occurred while updating data.');
 
   }
-
+  }
 
 });
 
