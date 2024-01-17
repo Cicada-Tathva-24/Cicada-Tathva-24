@@ -1,20 +1,24 @@
-<body style="background-color: rgb(122, 89, 89);">
+<body style="background:url('images/blob-scatter-haikei.svg');
+background-size: cover;">
 
 
-  <div class="container bg-light"
-    style="width: 50vw;
+  <div class="container text-center d-flex justify-content-center align-items-center flex-column"
+    style="@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Josefin+Sans:wght@600&family=Rubik&family=Rubik+Doodle+Shadow&family=Varela+Round&display=swap');
+    width: 50vw;
+    font-family: 'Varela Round', sans-serif;
     height: 40vh;
     border: 1px solid black;
      margin: 25vh 25vw;
      border-radius: 40px;
+     background: rgb(164,1,1);
+background: linear-gradient(81deg, rgba(164,1,1,1) 0%, rgba(247,116,23,1) 100%);
      box-shadow: 5px 5px 10px grey;">
      
     <h1 class="text-center mt-5">
-      <%= user.name %> Profile
+      <%= user.name %>'s Profile
     </h1>
-
     <div class="container p-4 text-center">
-      <h3>Lorem ipsum dolor sit amet.</h3><br>
+      <h3>So, shall we begin?..</h3><br>
       <form action="/profile" method="post">
         <%# <input type="text" name="key1"> %>
           <% if(typeof sts !=='undefined' ){ %>
