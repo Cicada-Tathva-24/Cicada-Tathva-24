@@ -112,7 +112,7 @@ app.get('/page2',checkAuthenticated,(req,res)=>{
   
 })
 
-app.get('/page2topage3',checkAuthenticated,(req,res)=>{
+app.get('/almond',checkAuthenticated,(req,res)=>{
 res.redirect('/page3');
 });
 
