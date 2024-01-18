@@ -340,6 +340,6 @@ function checkAuthenticated(req, res, next) {
     next()
   }
 
-app.listen(5432,()=>{
-    console.log("Server listening on port 5432");
+app.listen(3000,()=>{
+    console.log("Server listening on port 3000");
 })
