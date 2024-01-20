@@ -62,7 +62,19 @@ app.get('/admin',async (req,res)=>{
     i++;
 }
 res_arr.sort((a, b) => {
-  return a.time - b.time;
+  if (a.level < b.level) {
+    return 1;
+} else if (a.level > b.level) {
+    return -1;
+} else {
+    if (a.time < b.time) {
+        return -1;
+    } else if (a.time > b.time) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
 });
 
 console.log(res_arr);
@@ -81,14 +93,10 @@ app.get('/register',checkNotAuthenticated,(req,res)=>{
 })
 
 app.get('/profile',checkAuthenticated,(req,res)=>{
+
   const myDate1= new Date();
-  console.log("Full date " + myDate1);
-  console.log(myDate1.toTimeString());
-  localStorage.set("dt1",myDate1);
-  //localStorage.set("date1",myDate1.toDateString());
 
-
-
+  console.log("Login of " + myDate1.toLocaleString(),req.user.email);
     //console.log(req.user);
   res.render('profile',{user:req.user});
     
@@ -96,6 +104,9 @@ app.get('/profile',checkAuthenticated,(req,res)=>{
 
 app.get('/page1',checkAuthenticated,(req,res)=>{
   console.log('Page 1 '+req.user.email);
+  const myDate1= new Date();
+  localStorage.set("datestart",myDate1);
+
   res.render('page1',{user:req.user,pass:'12349'});
   
 });
@@ -228,7 +239,7 @@ app.post('/page3',async (req,res)=>{
     }
     else{
     
-      res.render('page4',{error:'Wrong key',user:req.user,pass:'9957'});
+      res.render('page3',{error:'Wrong key',user:req.user,pass:'9957'});
     }
   });
   
