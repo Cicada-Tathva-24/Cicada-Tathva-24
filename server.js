@@ -278,6 +278,7 @@ app.post('/page5',async (req,res)=>{
   var key=req.body.key5;
     if(key==process.env.KEY_5){
     const myDate5= new Date();
+    localStorage.set("date5",myDate5);
     let logfind=await Log.findOne({email:req.user.email});
 
     if (logfind && logfind.level5) {
