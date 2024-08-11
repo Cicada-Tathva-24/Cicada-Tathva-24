@@ -1,14 +1,14 @@
 # Use an official Node.js runtime as a base image
-FROM oven/bun:1 as base 
+FROM node:18
 
 # Set the working directory inside the container
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
 # Install app dependencies
-RUN bun install
+RUN npm install
 
 # Copy the application code into the container
 COPY . .
@@ -17,5 +17,5 @@ COPY . .
 EXPOSE 3000
 
 # Define the command to run your app
-CMD ["bun", "run","server.js"]
+CMD ["npm", "start"]
 
