@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: black;
+    }
+    .full-page {
+      background-image: url('');
+      background-color: rgba(0,0,0,0.859);
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .container, .form-container {
+      width: 20vw;
+      height: 20vh;
+      border: 1px solid black;
+      overflow: auto;
+      margin: 15vh 15vw;
+      border-radius: 40px;
+      box-shadow: 5px 5px 10px grey;
+      background-color: #00cdaf;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: black;
+    }
+    .form-container {
+      margin: 10vh 65vw;
+      box-shadow: 5px 5px 10px rgb(143, 134, 134);
+    }
+    input[type="text"] {
+      background-color: black; /* Box color to black */
+      border: none;
+      padding: 10px;
+      border-radius: 10px;
+      color: #00cdaf; /* Text color inside input */
+    }
+    button {
+      background-color: #00cdaf;
+      border: none;
+      padding: 10px;
+      border-radius: 10px;
+      color: black; /* Button text color */
+      cursor: pointer;
+    }
+    a {
+      color: black; /* Link text color */
+    }
+  </style>
+</head>
+<body>
+  <div class="full-page" id="content-area">
+    <div class="container">
+      <audio controls class="p-3">
+        <source src="quieter_song.mp3" type="audio/mpeg" />
+      </audio>
+      <a href="https://www.dropbox.com/scl/fi/k2cfdzhlglzp36z60ed18/quieter_song.mp3?rlkey=1rqdfz7ziw20ziqermgjarz6u&dl=1"
+         class="btn btn-danger">Test it out</a>
+    </div>
+
+    <div class="form-container">
+      <form class="m-4">
+        <input type="text" name="key1" placeholder="Maybe the audio should be">
+        <button type="button" id="morse-button" class="btn btn-secondary m-2">a little more morse</button>
+      </form>
+    </div>
+  </div>
+  <h1 id="error-message" style="display: none; text-align: center;">Invalid attempt</h1>
+
+  <script>
+    const pass = true; 
+    document.getElementById('morse-button').addEventListener('click', function() {
+      alert('Look above the page');
+    });
+    if (!pass) {
+      document.getElementById('content-area').style.display = 'none';
+      document.getElementById('error-message').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

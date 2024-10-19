@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stego Warriors</title>
+</head>
+<body>
+    <div class="container">
+        <img src="cicada.png" alt="Cicada" class="image">
+        <div class="input-container">
+            <input type="text" id="riddleInput" placeholder="Enter the riddle" class="input-box">
+            <button id="submitButton" onclick="checkRiddle()">Submit</button>
+            <p id="resultMessage"></p>
+        </div>
+    </div>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgba(0, 0, 0, 0.859);
+        }
+
+        .container {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .image {
+            width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+            border: 3px solid #00cdaf; /* Border added with the desired color */
+            border-radius: 10px; /* Optional: adds rounded corners to the image */
+        }
+
+        .input-container {
+            padding: 10px;
+            background-color: black;
+            border-radius: 10px;
+            display: inline-block;
+            border: 2px solid #00cdaf;
+        }
+
+        .input-box {
+            padding: 5px;
+            width: 150px;
+            border: 1px solid #00cdaf;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background-color: black;
+            color: #00cdaf;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #00cdaf;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: black;
+            color: white;
+        }
+
+        #resultMessage {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    </style>
+
+    <script>
+        function checkRiddle() {
+            var riddle = document.getElementById("riddleInput").value;
+            var correctAnswer = "We want the best, not the followers";
+
+            if (riddle === correctAnswer) {
+                document.getElementById("resultMessage").innerText = "Congrats! You've solved the riddle!";
+                document.getElementById("resultMessage").style.color = "green";
+            } else {
+                document.getElementById("resultMessage").innerText = "Incorrect! Try again.";
+                document.getElementById("resultMessage").style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
