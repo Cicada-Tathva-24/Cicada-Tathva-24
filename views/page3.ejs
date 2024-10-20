@@ -1,32 +1,97 @@
-
-<% if(pass){ %>
-<body style="background-image: url('https://img.freepik.com/free-photo/neon-tropical-monstera-leaf-banner_53876-138943.jpg?w=1060&t=st=1703361110~exp=1703361710~hmac=006fc47fc80cafe91dac5dbbc78a71b265cd6217676bb70f07a02379aadbec9d');
-background-size: cover; background-repeat: no-repeat; 
-background-position: center; font-family:monospace">
-    
-
-    <div class="container bg-light text-center d-flex flex-column justify-content-center align-items-center"
-    style="width: 40vw;
-    height: 45vh;
-    border: 1px solid black;
-     margin: 25vh 25vw;
-     border-radius: 40px;
-     box-shadow: 5px 5px 10px grey;">
-
-    <p>ejgem vjg ocr ucknqt!</p>
-    <p>56.356409951435336, -330.54374856138631</p>
-    <img src="/images/level2img.jpeg" alt="left left" style="height: 15vh;width: 15vw;">
-    <form class="m-4" action="/page3" method="post">
-        <input type="text" name="key3" placeholder="Enter key">
-        <input type="submit" class="btn btn-danger" value="Submit">
-        <% if (typeof error !== 'undefined') { %>
-            <script>
-                alert('Wrong key');
-            </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #242424;
+      font-family: 'Exo', sans-serif;
+      color: #00cdaf;
+    }
+    .card {
+      width: 450px;
+      background-color: #141414;
+      border: 1px solid #00cdaf;
+      box-shadow: 0 0 10px #00cdaf;
+      color: #00cdaf;
+      margin: auto;
+      padding: 16px;
+      border-radius: 8px;
+    }
+    .input-field {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      background-color: #141414;
+      color: #00cdaf;
+      border: 1px solid #00cdaf;
+      border-radius: 8px;
+    }
+    .button {
+      width: 100%;
+      background-color: #00cdaf;
+      color: #141414;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .message {
+      text-align: center;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="flex items-center justify-center min-h-screen">
+    <div class="card">
+      <div class="card-header text-center">
+        <h2 class="text-2xl font-bold mb-4">In a best case scenario, how many tosses are needed to reach 100?</h2>
+      </div>
+      <div class="card-content">
+        <img
+          src="/images/image1.jpg"
+          alt="Snake and Ladder game board"
+          class="w-full h-auto mb-4 border"
+          style="border-color: #00cdaf;
+                 max-width:100%;"
+        />
+        <form id="quizForm" action="/page3" method="post">
+          <input
+            type="text"
+            id="answerInput"
+            class="input-field"
+            name="key3"
+            placeholder="Enter your answer"
+          />
+          <input type="submit" class="button" onclick="handleSubmit()" value="Submit Answer">
+          <% if (typeof error !== 'undefined') { %>
+            <script>alert("Sorry, that's not correct. Try again!")</script>
         <% } %>
-    </form>
-</div>
+        </form>
+      </div>
+      <div class="card-footer text-center">
+        <p id="resultMessage" class="message"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- <script>
+    function handleSubmit() {
+      const answer = document.getElementById('answerInput').value;
+      const resultMessage = document.getElementById('resultMessage');
+
+      if (answer === '6') {
+        resultMessage.style.color = '#00cdaf';
+        resultMessage.innerText = 'Correct! You can move to the next question.';
+      } else {
+        resultMessage.style.color = 'red';
+        resultMessage.innerText = "Sorry, that's not correct. Try again!";
+      }
+    }
+  </script> -->
 </body>
-<% }else{ %>
-<h1>Invalid attempt</h1>
-    <% } %>
+</html>

@@ -30,7 +30,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.set('layout','layout.ejs');
+//app.set('layout','layout.ejs');
 
 //app.set("layout home", false);
 //app.use('/auth',authRoutes);
