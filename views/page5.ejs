@@ -1,50 +1,58 @@
-<body style="background-image: url('https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-background-size: cover; background-repeat: no-repeat; 
-background-position: center; font-family:monospace">
-    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Page</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00cdaf;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh; /* Full height */
+            text-align: center; /* Center text horizontally */
+            display: block; /* Default display */
+        }
+        .contenty {
+            position: absolute; /* Position absolute to center vertically */
+            top: 50%; /* Move to the middle of the page */
+            left: 50%; /* Move to the middle of the page */
+            transform: translate(-50%, -50%); /* Offset the element by half its size */
+            background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
+            border: 2px solid #00cdaf; /* Border around the content */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px; /* Inner padding */
+            max-width: 600px; /* Maximum width of the box */
+            width: 100%; /* Full width for smaller screens */
+        }
+        .down {
+            color: #00cdaf;
+            text-decoration: none;
+            font-size: 1.2em; /* Adjust font size for better proportions */
+            padding: 12px 24px; /* Adjust padding */
+            border: 2px solid #00cdaf;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: inline-block; /* Ensures button sizing works correctly */
+            margin-top: 20px; /* Space above the button */
+        }
+        .down:hover {
+            background-color: #00cdaf;
+            color: black;
+        }
+    </style>
+</head>
+<body>
 
-    <div class="container text-center d-flex flex-column justify-content-center align-items-center"
-    style="width: 50vw;
-    height: 40vh;
-     margin: 25vh 25vw;
-     border-radius: 40px;
-     box-shadow: 5px 5px 10px grey;
-     background: rgba(219, 208, 208, 0.3);
--webkit-backdrop-filter: blur(10px);
-backdrop-filter: blur(10px);
-border: 1px solid rgba(255,255,255,0.15);">
-
-    <p>What if you try to rearrange the pixels in that image..</p>
-    <a href="https://www.dropbox.com/scl/fi/aqbvd0x24fywoj00fzbsz/tathva_level4.jpeg?rlkey=uqxdcf065jlimmqqxubas5f3q&dl=1" class="btn btn-light"
-    style="background: #5E5DF0;
-      border-radius: 999px;
-      box-shadow: #5E5DF0 0 10px 20px -10px;
-      box-sizing: border-box;
-      color: #d3cdcd;
-      cursor: pointer;
-      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 24px;
-      opacity: 1;
-      outline: 0 solid transparent;
-      padding: 8px 18px;
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: manipulation;
-      width: fit-content;
-      word-break: break-word;
-      border: 0;">Download Here</a>    
-    
-    <form class="m-4" action="/page5" method="post">
-        <input type="text" name="key5" placeholder="Enter key">
-        <input type="submit" class="btn btn-secondary" value="Submit">
-        <% if (typeof error !== 'undefined') { %>
-            <script>
-                alert('Wrong key');
-            </script>
-        <% } %>
-    </form>
+<div class="contenty">
+    <% if (pass) { %>
+        <h1>Welcome to the 4th question of the puzzle</h1>
+        <p>Use the below button to download a file to find a solution to the next qn.</p>
+        <a href="" class="down" download>Download File</a>
+    <% } else { %>
+        <h1>Invalid attempt</h1>
+    <% } %>
 </div>
 </body>
-
+</html>
