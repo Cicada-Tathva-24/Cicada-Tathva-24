@@ -102,7 +102,7 @@ app.get('/profile',checkAuthenticated,(req,res)=>{
     
 })
 
-app.get('/page1',checkAuthenticated,(req,res)=>{
+app.get('/ZPVKQGGbqvr66wRT22Yf1NpCqc9kyE',checkAuthenticated,(req,res)=>{
   console.log('Page 1 '+req.user.email);
   const myDate1= new Date();
   localStorage.set("datestart",myDate1);
@@ -113,7 +113,7 @@ app.get('/page1',checkAuthenticated,(req,res)=>{
 
 
 
-app.get('/page2',checkAuthenticated,(req,res)=>{
+app.get('/z0WH5pAWWCsr5wrvq2vRvy8rvsNdIG',checkAuthenticated,(req,res)=>{
   const myDate2= new Date();
 //  var datestr=localStorage.get("dt1");
 //  var dateorg=new Date(datestr);
@@ -128,7 +128,7 @@ res.redirect('/page3');
 });
 
 
-app.get('/page3',checkAuthenticated,async (req,res)=>{
+app.get('/kbVtxXADjx24noayRNSwEyeWxQU6yv',checkAuthenticated,async (req,res)=>{
   console.log('Page 3 '+req.user.email);
   const myDate3= new Date();
   let logfind=await Log.findOne({email:req.user.email});
@@ -196,7 +196,7 @@ app.post('/profile',async (req,res)=>{
  if(!logfind){
  await log.save().then(()=>{
     console.log('Email created');
-    res.redirect('/page1');
+    res.redirect('/ZPVKQGGbqvr66wRT22Yf1NpCqc9kyE');
 }).catch((err) => {
   console.log("err here"+err);
   res.send(err.message);
@@ -204,7 +204,7 @@ app.post('/profile',async (req,res)=>{
 }
 else{
   console.log(req.user.email,"Exists");
-  res.redirect('/page1');
+  res.redirect('/ZPVKQGGbqvr66wRT22Yf1NpCqc9kyE');
 }
 
 
@@ -215,7 +215,7 @@ else{
     
 });
 
-app.post('/page3',async (req,res)=>{
+app.post('/kbVtxXADjx24noayRNSwEyeWxQU6yv',async (req,res)=>{
   var key=req.body.key3;
     if(key==process.env.KEY_3){
     const myDate3= new Date();
@@ -303,7 +303,7 @@ app.post('/page5',async (req,res)=>{
   });
 
 
-app.post('/page1',async (req,res)=>{
+app.post('/ZPVKQGGbqvr66wRT22Yf1NpCqc9kyE',async (req,res)=>{
 
   console.log('Page 1 Post '+req.user.email);
   const myDate1= new Date();
@@ -311,13 +311,13 @@ app.post('/page1',async (req,res)=>{
 
   if (logfind && logfind.level1) {
     console.log(`Level1 already registered for ${req.user.email}`);
-    res.redirect('/page2');
+    res.redirect('/z0WH5pAWWCsr5wrvq2vRvy8rvsNdIG');
   } 
   else {
   try {
     const doc = await Log.findOneAndUpdate({ email: req.user.email }, { level1: myDate1 }, { new: true });
     console.log(`Doc Page1 is ${doc}`);
-    res.redirect('/page2');
+    res.redirect('/z0WH5pAWWCsr5wrvq2vRvy8rvsNdIG');
   } catch (err) {
     console.log("Something wrong when updating data!");
     res.status(500).send('An error occurred while updating data.');
