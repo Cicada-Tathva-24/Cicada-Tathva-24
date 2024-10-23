@@ -1,98 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stego Warriors</title>
-</head>
-<body>
-    <div class="container">
-        <img src="/images/cicadasteg.png %>" alt="Cicada" class="image">
-        <div class="input-container">
-            <input type="text" id="riddleInput" placeholder="Enter the riddle" class="input-box">
-            <button id="submitButton" onclick="checkRiddle()">Submit</button>
-            <p id="resultMessage"></p>
-        </div>
-    </div>
-
+    <title>Explore your system</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
         body {
+            font-family: "Exo", Arial, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: rgba(0, 0, 0, 0.859);
+            background-color: #242424;
+            color: #00cdaf;
         }
 
         .container {
             text-align: center;
-            color: rgba(255, 255, 255, 0.8);
+            background-color: #141414;
+            padding: 20px;
+            width: 60vw;
+            height: 40vh;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #riddle {
+            font-family: Arial, sans-serif;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-        }
-
-        .image {
-            width: 300px;
-            height: auto;
-            margin-bottom: 20px;
-            border: 3px solid #00cdaf; /* Border added with the desired color */
-            border-radius: 10px; /* Optional: adds rounded corners to the image */
-        }
-
-        .input-container {
-            padding: 10px;
             background-color: black;
+            color: #00cdaf;
+            padding: 20px;
+            margin: 20px;
+            width: fit-content;
             border-radius: 10px;
-            display: inline-block;
-            border: 2px solid #00cdaf;
         }
 
-        .input-box {
-            padding: 5px;
-            width: 150px;
-            border: 1px solid #00cdaf;
+        #download-text {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 5px solid blueviolet;
+            background-color: black;
+            color: white;
+            padding: 20px;
+            margin: 20px;
+            width: fit-content;
+            border-radius: 10px;
+        }
+
+        button {
+            border: 2px solid black;
             border-radius: 5px;
-            margin-bottom: 10px;
+            font-size: 24px;
+            color: black;
+            background-color: #00cdaf;
+            font-family: "Exo";
+            font-weight: bold;
+            margin: 10px;
+            padding: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        button:hover {
+            cursor: pointer;
             background-color: black;
             color: #00cdaf;
         }
 
-        button {
-            padding: 8px 16px;
-            background-color: #00cdaf;
-            color: black;
-            border: none;
+        #answer {
+            width: 50vw;
+            height: 20vh;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: black;
-            color: white;
-        }
-
-        #resultMessage {
-            margin-top: 10px;
             font-size: 16px;
+            text-wrap: wrap;
+            font-size: 24px;
+            border: 2px solid #00cdaf;
+            background-color: #026f5f;
+            border-radius: 10px;
+        }
+
+        input::placeholder {
+            color: black;
+            font-family: "Exo", Arial, sans-serif;
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 30px;
+            margin-left: 30px;
+            margin-right: 30px;
+            background-color: #218838;
         }
     </style>
+</head>
 
-    <script>
-        function checkRiddle() {
-            var riddle = document.getElementById("riddleInput").value.trim();
-            var correctAnswer = "<%= riddleAnswer || 'We want the best, not the followers' %>";
-
-            if (riddle.toLowerCase() === correctAnswer.toLowerCase()) {
-                document.getElementById("resultMessage").innerText = "Congrats! You've solved the riddle!";
-                document.getElementById("resultMessage").style.color = "green";
-            } else {
-                document.getElementById("resultMessage").innerText = "Incorrect! Try again.";
-                document.getElementById("resultMessage").style.color = "red";
-            }
-        }
-    </script>
+<body>
+    <button id="downloadBtn">
+	<a href="files/binary.o" class="down" download>Download File</a>
+    </button>
+    <p></p>
+    <p></p>
+    <p id="riddle">
+        log<sub><sub>pid</sub>(Sys): riddleAnswer
+    </p>
+    <p></p>
+    <div class="container">
+        <h1>Enter the Answer</h1>
+	<form action="/794JBR5aLKb080ddWCO4SFE0gk5uqk" method="post">
+        <input type="text" id="answer" name="key7" placeholder="Enter your answer here...">
+        <br>
+	<input type="submit" id="submitBtn" value="Submit">
+	<% if (typeof error !== 'undefined') { %>
+		<script>alert("Sorry, that's not correct. Try again!")</script>
+	<% } %>
+	</form>
+    </div>
 </body>
 </html>
