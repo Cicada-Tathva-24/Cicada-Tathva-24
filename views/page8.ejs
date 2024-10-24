@@ -1,87 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stego Warriors</title>
-</head>
-<body>
-    <div class="container">
-        <img src="/images/cicadasteg.png" alt="Cicada" class="image">
-        <div class="input-container">
-	<form action="/8UNw3FRV3jRTNUw9goRAl3fyXfwpR1" method="post">
-            <input type="text" id="riddleInput" placeholder="Enter the riddle" name="key8" class="input-box">
-	   <input type="submit" id="submitButtonn" value="Submit">
-	   <% if (typeof error !== 'undefined') { %>
-	   <script>alert("Sorry, that's not correct. Try again!")</script>
-	   <% } %>
-        </form>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Stego Warriors</title>
+        <style>
+            body {
+                height: 100vh;
+                margin: 0;
+                background-color: #242424;
+            }
+
+            .container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                color: #00cdaf;
+                background-color: #141414;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                border: 5px solid black;
+                border-radius: 15px;
+                box-shadow: 0 0 10px #00cdaf;
+                width: 600px;
+                height: 500px;
+            }
+            h1 {
+                font-size: 36px;
+            }
+            .image {
+                margin-top: 10px;
+                width: 300px;
+                height: auto;
+                margin-bottom: 20px;
+                border: 3px solid #00cdaf;
+                border-radius: 10px;
+            }
+
+            .input-box {
+                font-size: 24px;
+                padding: 10px;
+                width: 300px;
+                background-color: #026f5f;
+                border-radius: 10px;
+                border: #00cdaf 2px solid;
+                color: black;
+            }
+            .input-box::placeholder {
+                color: black;
+                font-family: "Exo", Arial, sans-serif;
+            }
+
+            #resultMessage {
+                margin-top: 10px;
+                font-size: 16px;
+            }
+            p {
+                font-size: 20px;
+            }
+            #submitBtn {
+                border: 2px solid black;
+                border-radius: 5px;
+                font-size: 24px;
+                color: black;
+                background-color: #00cdaf;
+                font-family: "Exo";
+                font-weight: bold;
+                margin: 10px;
+                padding: 5px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            #submitBtn:hover {
+                cursor: pointer;
+                background-color: black;
+                color: #00cdaf;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Unveil the Hidden Message</h1>
+            <img src="/images/cicadasteg.png" alt="Cicada" class="image" />
+            <p>
+                This image holds more than what meets the eye. Look deeper,
+                beyond the surface.
+            </p>
+            <form action="/8UNw3FRV3jRTNUw9goRAl3fyXfwpR1" method="post">
+                <input
+                    type="text"
+                    id="riddleInput"
+                    placeholder="Enter the riddle"
+                    name="key8"
+                    class="input-box"
+                />
+                <br>
+                <input type="submit" id="submitBtn" value="Submit" />
+                <% if (typeof error !== 'undefined') { %>
+                <script>
+                    alert("Sorry, that's not correct. Try again!");
+                </script>
+                <% } %>
+            </form>
         </div>
-    </div>
-
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: rgba(0, 0, 0, 0.859);
-        }
-
-        .container {
-            text-align: center;
-            color: rgba(255, 255, 255, 0.8);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .image {
-            width: 300px;
-            height: auto;
-            margin-bottom: 20px;
-            border: 3px solid #00cdaf; /* Border added with the desired color */
-            border-radius: 10px; /* Optional: adds rounded corners to the image */
-        }
-
-        .input-container {
-            padding: 10px;
-            background-color: black;
-            border-radius: 10px;
-            display: inline-block;
-            border: 2px solid #00cdaf;
-        }
-
-        .input-box {
-            padding: 5px;
-            width: 150px;
-            border: 1px solid #00cdaf;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            background-color: black;
-            color: #00cdaf;
-        }
-
-        button {
-            padding: 8px 16px;
-            background-color: #00cdaf;
-            color: black;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: black;
-            color: white;
-        }
-
-        #resultMessage {
-            margin-top: 10px;
-            font-size: 16px;
-        }
-    </style>
-</body>
+    </body>
 </html>

@@ -11,53 +11,44 @@
     <style>
         body {
             font-family: "Exo", Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             height: 100vh;
             margin: 0;
             background-color: #242424;
             color: #00cdaf;
         }
-
+        .container h2 {
+            text-align: left;
+            padding-left: 32px;
+        }
         .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             text-align: center;
             background-color: #141414;
-            padding: 20px;
-            width: 60vw;
-            height: 40vh;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 800px;
+            height: 550px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px #00cdaf;
         }
-
-        #riddle {
-            font-family: Arial, sans-serif;
+        .main {
+            margin: auto;
+            height: 600px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: black;
             color: #00cdaf;
+            background-color: #141414;
+            width: 40vw;
+            border: 5px solid black;
+            border-radius: 15px;
+            box-shadow: 0 0 10px #00cdaf;
             padding: 20px;
-            margin: 20px;
-            width: fit-content;
-            border-radius: 10px;
+            text-align: center;
         }
-
-        #download-text {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 5px solid blueviolet;
-            background-color: black;
-            color: white;
-            padding: 20px;
-            margin: 20px;
-            width: fit-content;
-            border-radius: 10px;
-        }
-
-        button {
+        #submitBtn {
             border: 2px solid black;
             border-radius: 5px;
             font-size: 24px;
@@ -66,20 +57,19 @@
             font-family: "Exo";
             font-weight: bold;
             margin: 10px;
+            margin-bottom: 0px;
             padding: 5px;
             padding-left: 10px;
             padding-right: 10px;
         }
-
-        button:hover {
+        #submitBtn:hover {
             cursor: pointer;
             background-color: black;
             color: #00cdaf;
         }
-
         #answer {
-            width: 50vw;
-            height: 20vh;
+            width: 90%;
+            height: 50px;
             margin-bottom: 10px;
             padding: 10px;
             border: 1px solid #ccc;
@@ -91,42 +81,74 @@
             background-color: #026f5f;
             border-radius: 10px;
         }
-
-        input::placeholder {
+        .container input::placeholder {
             color: black;
             font-family: "Exo", Arial, sans-serif;
         }
-
-        p {
-            font-size: 18px;
-            margin-top: 30px;
-            margin-left: 30px;
-            margin-right: 30px;
-            background-color: #218838;
+        .container h1 {
+            font-size: 48px;
+            margin: 10px;
+            margin-bottom: 35px;
+        }
+        #para {
+            font-size: 24px;
+            padding-left: 50px;
+            padding-right: 50px;
+            margin: 20px;
+            margin-top: 40px;
+        }
+        #hint {
+            font-size: 16px;
+        }
+        #download-text {
+            color: black;
+            text-decoration: none;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-size: 24px;
+            color: black;
+            background-color: #00cdaf;
+            font-family: "Exo";
+            font-weight: bold;
+            margin: 35px;
+            padding: 10px;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+        #download-text:hover {
+            cursor: pointer;
+            background-color: black;
+            color: #00cdaf;
         }
     </style>
 </head>
 
 <body>
-    <button id="downloadBtn">
-	<a href="files/binary.o" class="down" download>Download File</a>
-    </button>
-    <p></p>
-    <p></p>
-    <p id="riddle">
-        log<sub><sub>pid</sub>(Sys): riddleAnswer
-    </p>
-    <p></p>
     <div class="container">
-        <h1>Enter the Answer</h1>
-	<form action="/794JBR5aLKb080ddWCO4SFE0gk5uqk" method="post">
-        <input type="text" id="answer" name="key7" placeholder="Enter your answer here...">
-        <br>
-	<input type="submit" id="submitBtn" value="Submit">
-	<% if (typeof error !== 'undefined') { %>
-		<script>alert("Sorry, that's not correct. Try again!")</script>
-	<% } %>
-	</form>
+        <h1>Find the Hidden Answer</h1>
+        <a href="./binary.o" download id="download-text">Download the file</a>
+
+        <p id="para">A file is ready for you to explore. Download it and uncover the answer by decoding the information contained within.</p>
+
+        <h2>Enter the Answer:</h2>
+
+        <!-- <form action="/submit" method="POST">
+            <input type="text" id="answer" name="answer" placeholder="Enter your answer here..." required>
+            <button type="submit">Submit</button>
+        </form> -->
+        <form action="/794JBR5aLKb080ddWCO4SFE0gk5uqk" method="post">
+            <input type="text" id="answer" name="key7" placeholder="Enter your answer here...">
+            <br>
+        <input type="submit" id="submitBtn" value="Submit">
+        <% if (typeof error !== 'undefined') { %>
+            <script>alert("Sorry, that's not correct. Try again!")</script>
+        <% } %>
+        </form>
+
+        <p id="hint">
+            Hint: log<sub><sub>pid</sub>(Sys)
+        </p>
     </div>
+
 </body>
 </html>

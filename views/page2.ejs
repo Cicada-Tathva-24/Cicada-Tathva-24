@@ -11,6 +11,9 @@
       font-family: 'Exo', sans-serif;
       color: #00cdaf;
     }
+    #blank {
+      height: 25px;
+    }
     .card {
       width: 450px;
       background-color: #141414;
@@ -25,12 +28,19 @@
       width: 100%;
       padding: 8px;
       margin-bottom: 16px;
-      background-color: #141414;
-      color: #00cdaf;
-      border: 1px solid #00cdaf;
-      border-radius: 8px;
+      font-size: 24px;
+      padding: 10px;
+      background-color: #026f5f;
+      border-radius: 10px;
+      border: #00cdaf 2px solid;
+      color: black;
+    }
+    .input-field::placeholder {
+      color: black;
     }
     .button {
+      font-weight: 600;
+      font-size: 24px;
       width: 100%;
       background-color: #00cdaf;
       color: #141414;
@@ -46,6 +56,7 @@
   </style>
 </head>
 <body>
+  <div id="blank"></div>
   <div class="flex items-center justify-center min-h-screen">
     <div class="card">
       <div class="card-header text-center">

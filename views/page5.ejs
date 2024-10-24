@@ -1,46 +1,222 @@
 <% if(pass){ %>
-<body style="background: url('https://img.freepik.com/free-vector/beige-leafy-watercolor-background-vector_53876-136491.jpg?w=996&t=st=1703360420~exp=1703361020~hmac=dc613830600ecedc9797ee5f2f3191e8615bf01305a47eccc093fb90dc9e4faa')no-repeat center center fixed; 
-background-size: cover; ">
-    
+<!-- <body
+    style="
+        background: url('https://img.freepik.com/free-vector/beige-leafy-watercolor-background-vector_53876-136491.jpg?w=996&t=st=1703360420~exp=1703361020~hmac=dc613830600ecedc9797ee5f2f3191e8615bf01305a47eccc093fb90dc9e4faa')
+            no-repeat center center fixed;
+        background-size: cover;
+    "
+>
+    <div
+        class="container bg-light text-center d-flex flex-column justify-content-center align-items-center"
+        style="
+            width: 20vw;
+            height: 20vh;
+            border: 1px solid black;
+            overflow: auto;
+            margin: 15vh 15vw;
+            border-radius: 40px;
+            box-shadow: 5px 5px 10px grey;
+        "
+    >
+        <audio class="p-3" controls>
+            <source src="audio/quieter_song.mp3" type="audio/mpeg" />
+            doesnt support
+        </audio>
 
-    <div class="container bg-light text-center d-flex flex-column justify-content-center align-items-center"
-    style="width: 20vw;
-    height: 20vh;
-    border: 1px solid black;
-    overflow: auto;
-     margin: 15vh 15vw;
-     border-radius: 40px;
-     box-shadow: 5px 5px 10px grey;">
-     <audio class="p-3" controls>
-        <source src="audio/quieter_song.mp3" type="audio/mpeg">
-        doesnt support
-     </audio>
-    
-    <a href="https://www.dropbox.com/scl/fi/k2cfdzhlglzp36z60ed18/quieter_song.mp3?rlkey=1rqdfz7ziw20ziqermgjarz6u&dl=1" class="btn btn-danger">Test it out</a>
-    
-    
-</div>
+        <a
+            href="https://www.dropbox.com/scl/fi/k2cfdzhlglzp36z60ed18/quieter_song.mp3?rlkey=1rqdfz7ziw20ziqermgjarz6u&dl=1"
+            class="btn btn-danger"
+            >Test it out</a
+        >
+    </div>
 
-<div class="container-fluid bg-transparent d-flex align-items-center " style="width: 20vw;
-height: 20vh;
-border: 1px solid black;
-overflow: auto;
- margin: 10vh 65vw;
- border-radius: 40px;
- box-shadow: 5px 5px 10px grey;">
-    <form class="m-4">
-        <input type="text" name="key1" placeholder="Maybe the audio should be">
-        <button onclick="clicked()" class="btn btn-secondary m-2" >a little more morse</button>
-    </form>
-</div>
+    <div
+        class="container-fluid bg-transparent d-flex align-items-center"
+        style="
+            width: 20vw;
+            height: 20vh;
+            border: 1px solid black;
+            overflow: auto;
+            margin: 10vh 65vw;
+            border-radius: 40px;
+            box-shadow: 5px 5px 10px grey;
+        "
+    >
+        <form class="m-4">
+            <input
+                type="text"
+                name="key1"
+                placeholder="Maybe the audio should be"
+            />
+            <button onclick="clicked()" class="btn btn-secondary m-2">
+                a little more morse
+            </button>
+        </form>
+    </div>
+</body> -->
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Level 6</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet"
+    />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #242424;
+            color: #00cdaf;
+            text-align: center;
+            font-family: "Exo", "Segoe UI", Tahoma, Geneva, Verdana,
+                sans-serif;
+        }
+        h1 {
+            font-size: 48px;
+        }
+        .main h2{
+            margin: 10px;
+        }
+        audio {
+            background-color: #141414;
+            border: 1px solid white;
+            background-color: white;
+            border-radius: 10px;
+        }
+        .container {
+            height: 90vh;
+            background-color: #242424;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main {
+            height: 750px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #00cdaf;
+            background-color: #141414;
+            width: 40vw;
+            border: 5px solid black;
+            border-radius: 15px;
+            box-shadow: 0 0 10px #00cdaf;
+        }
+        input {
+            font-size: 24px;
+            padding: 10px;
+            background-color: #026f5f;
+            border-radius: 10px;
+            border: #00cdaf 2px solid;
+            color: black;
+        }
+        input::placeholder {
+            color: black;
+            font-family: "Exo", Arial, sans-serif;
+        }
+        #submitBtn {
+            border: 2px solid black;
+            border-radius: 5px;
+            font-size: 24px;
+            color: black;
+            background-color: #00cdaf;
+            font-family: "Exo";
+            font-weight: bold;
+            margin: 10px;
+            margin-top: 30px;
+            padding: 5px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #submitBtn:hover {
+            cursor: pointer;
+            background-color: black;
+            color: #00cdaf;
+        }
+        .main a {
+            color: black;
+            text-decoration: none;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-size: 24px;
+            color: black;
+            background-color: #00cdaf;
+            font-family: "Exo";
+            font-weight: bold;
+            padding: 10px;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+        .main a:hover {
+            text-decoration: none;
+            cursor: pointer;
+            background-color: black;
+            color: #00cdaf;
+        }
+        p {
+            font-size: 24px;
+        }
+        #hint{
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main">
+            <h1>Audio Challenge - Decode the Message</h1>
+            <p>
+                Download the audio file below and analyze it carefully.
+                Hidden within, you'll find the key to proceed.
+            </p>
+            <audio src="/audio/quieter_song.mp3" controls></audio>
+            <br />
+            <a href="/audio/quieter_song.mp3" download>Download Audio File</a>
+            <h2>Enter the Answer:</h2>
+
+            <form>
+                <input
+                    type="text"
+                    id="answer"
+                    name="answer"
+                    placeholder="Enter your answer here..."
+                    required
+                />
+                <input  type="submit" id="submitBtn" value="Submit">
+            </form>
+            <p id="hint">Hint: Sometimes, even silence speaks in code. Pay attention to the patterns.</p>
+        </div>
+    </div>
+
+    <script>
+
+            document
+            .getElementById("submitBtn")
+            .addEventListener("click", function (event) {
+                clicked();
+            });
+
+            function clicked(){
+                alert("Look above the page");
+            }
+    </script>
 </body>
-<script>
-function clicked(){
-alert("Look above the page");
-}
-
-</script>
+<!-- <script>
+    function clicked() {
+        alert("Look above the page");
+    }
+</script> -->
 
 <% }else{ %>
 <h1>Invalid attempt</h1>
-    <% } %>
+<% } %>

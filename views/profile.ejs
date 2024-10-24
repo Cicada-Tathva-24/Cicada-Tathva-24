@@ -1,40 +1,102 @@
-<body style="background:url('images/blob-scatter-haikei.svg');
-background-size: cover;">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            body {
+                background: url("images/cicada.jpg");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: #050505;
+                font-family: "Exo";
+                height: 100vh;
+            }
+            h3{
+              font-size: 32px;
+            }
+            h1{
+              font-size: 48px;
+            }
+            p{
+              font-size: 20px;
+            }
+            .container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                height: 400px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: #00cdaf;
+                background-color: rgba(0, 0, 0, 0.795);
+                backdrop-filter: blur(5px);
+                width: 500px;
+                border: 5px solid black;
+                border-radius: 15px;
+                box-shadow: 0 0 10px #00cdaf;
+                width: 600px;
+            }
 
 
-  <div class="container text-center d-flex justify-content-center align-items-center flex-column"
-    style="@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Josefin+Sans:wght@600&family=Rubik&family=Rubik+Doodle+Shadow&family=Varela+Round&display=swap');
-    width: 50vw;
-    font-family: 'Varela Round', sans-serif;
-    height: 40vh;
-    border: 1px solid black;
-     margin: 25vh 25vw;
-     border-radius: 40px;
-     background: rgb(164,1,1);
-background: linear-gradient(81deg, rgba(164,1,1,1) 0%, rgba(247,116,23,1) 100%);
-     box-shadow: 5px 5px 10px grey;">
-     
-    <h1 class="text-center mt-5">
-      <%= user.name %>'s Profile
-    </h1>
-        <div class="container p-4 text-center">
-      
-      <form action="/profile" method="post">
-        <%# <input type="text" name="key1"> %>
-          <% if(typeof sts !=='undefined' ){ %>
-            <h3>Tasks completed.</h3>
-            <h3>See You at Tathva '23?</h3>
+            #start {
+                border: 2px solid black;
+                border-radius: 5px;
+                font-size: 24px;
+                width: 350px;
+                color: black;
+                background-color: #00cdaf;
+                font-family: "Exo";
+                font-weight: bold;
+                margin: 10px;
+                padding: 5px;
+                padding-left: 30px;
+                padding-right: 30px;
+            }
 
-            <script>
-              let bodyimg=document.querySelector('body');
-              bodyimg.style.backgroundImage="url('images/tathvaold.jpg')";
-            </script>
-            <% }else{ %>
-              <h3>So, shall we begin?..</h3><br>
-              <input type="submit" class="btn btn-secondary" value="Start">
+            #start:hover {
+                cursor: pointer;
+                background-color: black;
+                color: #00cdaf;
+            }
+        </style>
+    </head>
 
-              <% } %>
-      </form>
-    </div>
-  </div>
-</body>
+    <body>
+        <div
+            class="container text-center d-flex justify-content-center align-items-center flex-column"
+        >
+            
+            
+
+            <form action="/profile" method="post">
+                <% if(typeof sts !=='undefined' ){ %>
+                  <h3>Congratulations!</h3>
+                  <h3>You've successfully completed all the challenges!</h3>
+                  <br />
+                  <p>
+                      We hope you enjoyed cracking the puzzles and testing your skills.  
+                      Thank you for being a part of Cicada '24!  
+                      Don't forget to explore the rest of the fest and celebrate your victory.
+                  </p>
+                <% } else { %>
+                <h1>Welcome to the Challenge</h1>
+                <h3>Are you ready to test your skills?</h3>
+                <br />
+                <p>
+                  A journey awaits, full of riddles, code, and hidden secrets.
+Only the sharpest minds will make it to the end.
+                </p>
+                <input
+                    type="submit"
+                    class="btn"
+                    value="Start"
+                    id="start"
+                />
+                <% } %>
+            </form>
+        </div>
+    </body>
+</html>
