@@ -24,7 +24,7 @@
     }
     .main{
         margin:auto;
-        height: 60vh;
+        height: 650px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -81,6 +81,9 @@
         border-radius: 5px;
         background-color: rgba(0, 0, 0, 0.7);
     }
+    #hint{
+        font-size: 15px;
+    }
 </style>
 <body>
     <div class="container">
@@ -110,6 +113,7 @@
             <% } else { %>
                 <h1>Invalid attempt</h1>
             <% } %>
+            <p id="hint">Hint: Seek out the wisdom of Python to spot the knights that have no twins in the string.</p>
         </div>
     </div>
 </body>
