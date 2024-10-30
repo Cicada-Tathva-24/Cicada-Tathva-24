@@ -6,13 +6,24 @@ This is the official repository for Cicada 2024 held on 26th October 2024 as par
 Ensure docker is installed on your system
 
 2) ### Clone the repository
-```git clone https://github.com/Cicada-Tathva-24/Cicada-Tathva-24.git```
+```bash
+git clone https://github.com/Cicada-Tathva-24/Cicada-Tathva-24.git
+```
 
 3) ### Change to the working directory
-```cd Cicada-Tathva-24```
+```bash
+cd Cicada-Tathva-24
+```
 
-4) ### Use docker compose to run the software
-```docker compose up```
+4) ### Build the software
+```bash
+docker compose build
+```
 
-5) ### Access the application
+5) ### Run the software
+```bash
+docker compose up
+```
+
+6) ### Access the software
 Go to http://localhost:3000 in your browser
