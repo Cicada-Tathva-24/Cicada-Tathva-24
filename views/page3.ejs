@@ -1,32 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obfuscated Challenge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
 
-<% if(pass){ %>
-<body style="background-image: url('https://img.freepik.com/free-photo/neon-tropical-monstera-leaf-banner_53876-138943.jpg?w=1060&t=st=1703361110~exp=1703361710~hmac=006fc47fc80cafe91dac5dbbc78a71b265cd6217676bb70f07a02379aadbec9d');
-background-size: cover; background-repeat: no-repeat; 
-background-position: center; font-family:monospace">
-    
+        body{
+            background-color: #242424;
+            text-align: center;
+            font-family: "Exo",'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container{
+            background-color: #242424;
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main{
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #00cdaf;
+            background-color: #141414;
+            /* background-color: antiquewhite; */
+            width: 500px;
+            border: 5px solid black;
+            border-radius: 15px;
+            box-shadow: 0 0 10px #00cdaf;
+        }
+        #submitBtn{
+            border: 2px solid black;
+            border-radius: 5px;
+            font-size: 24px;
+            color: black;
+            background-color: #00cdaf;
+            font-family: "Exo";
+            font-weight: bold;
+            margin: 10px;
+            padding: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        #submitBtn:hover{
+            cursor: pointer;
+            background-color: black;
+            color: #00cdaf;
+        }
+        input{
+            font-size: 24px;
+            padding: 10px;
+            width: 300px;
+            background-color: #026f5f;
+            border-radius: 10px;
+            border: #00cdaf 2px solid;
+            color: black;
+        }
+        input::placeholder{
+            color: black;
+            font-family: "Exo", Arial, sans-serif;
+        }
+        p{
+            margin: 10px;
+            font-size: 24px;
+        }
+        h1{
+            margin: 10px;
+            font-size: 48px;
+        }
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
 
-    <div class="container bg-light text-center d-flex flex-column justify-content-center align-items-center"
-    style="width: 40vw;
-    height: 45vh;
-    border: 1px solid black;
-     margin: 25vh 25vw;
-     border-radius: 40px;
-     box-shadow: 5px 5px 10px grey;">
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
 
-    <p>ejgem vjg ocr ucknqt!</p>
-    <p>56.356409951435336, -330.54374856138631</p>
-    <img src="/images/level2img.jpeg" alt="left left" style="height: 15vh;width: 15vw;">
-    <form class="m-4" action="/page3" method="post">
-        <input type="text" name="key3" placeholder="Enter key">
-        <input type="submit" class="btn btn-danger" value="Submit">
-        <% if (typeof error !== 'undefined') { %>
-            <script>
-                alert('Wrong key');
-            </script>
-        <% } %>
-    </form>
-</div>
+        ::-webkit-scrollbar-thumb {
+            background-color: #00cdaf;
+            border-radius: 5px;
+            border: 3px solid #026f5f;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #026f5f;
+            border: 3px solid #00cdaf;
+        }
+        #hint{
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main">
+            <h1>Solve the Puzzle</h1>
+            <p>Enter the correct code below:</p>
+            <form id="quizForm" action="/3bVtxXADjx24noayRNSwEyeWxQU6yv" method="post">
+            <input type="text" id="userInput" name="key3" placeholder="Enter code here">
+            <br>
+            <input type="submit" id="submitBtn" value="Submit">
+            <% if (typeof error !== 'undefined') { %>
+                <script>alert("Sorry, that's not correct. Try again!");document.location.replace("/3bVtxXADjx24noayRNSwEyeWxQU6yv")</script>
+            <% } %>
+            </form>
+            <p id="hint">Hint: Sometimes, looking at things <strong>backwards</strong> might reveal the truth.</p>
+        </div>
+    </div>
+
+    <script>
+        let _0x01 = function () {
+  let _0x02 = [84, 104, 105, 115, 105, 115], _0x03 = [67, 111, 114, 114, 101, 99, 116], _0x04 = [67, 111, 100, 101], _0x05 = function () {
+    let _0x06 = function (_0x07) {
+      let _0x08 = "";
+      for (let _0x09 = 0; _0x09 < _0x07.length; _0x09++) {
+        _0x08 += String.fromCharCode(_0x07[_0x09]);
+      }
+      return _0x08;
+    };
+    return _0x06(_0x02) + _0x06(_0x03) + _0x06(_0x04);
+  };
+  let _0x12 = String.fromCharCode(67, 111, 114, 114, 101, 99, 116) + String.fromCharCode(32) + String.fromCharCode(67, 111, 100, 101) + String.fromCharCode(33) + String.fromCharCode(32) + String.fromCharCode(77, 111, 118, 105, 110, 103) + String.fromCharCode(32) + String.fromCharCode(116, 111) + String.fromCharCode(32) + String.fromCharCode(116, 104, 101) + String.fromCharCode(32) + String.fromCharCode(110, 101, 120, 116) + String.fromCharCode(32) + String.fromCharCode(112, 97, 103, 101) + String.fromCharCode(46), _0x13 = String.fromCharCode(73, 110, 99, 111, 114, 114, 101, 99, 116) + String.fromCharCode(32) + String.fromCharCode(67, 111, 100, 101) + String.fromCharCode(33) + String.fromCharCode(32) + String.fromCharCode(80, 108, 101, 97, 115, 101) + String.fromCharCode(32) + String.fromCharCode(116, 114, 121) + String.fromCharCode(32) + String.fromCharCode(97, 103, 97, 105, 110, 46);
+  document.getElementById("submitBtn").addEventListener("click", function () {
+    let _0x14 = document.getElementById("userInput").value, _0x15 = _0x14.split("").reverse().join("");
+    if (_0x15 == _0x05()) {
+      //You're correct!!
+    }
+  });
+};
+_0x01();
+    </script>
 </body>
-<% }else{ %>
-<h1>Invalid attempt</h1>
-    <% } %>
+</html>

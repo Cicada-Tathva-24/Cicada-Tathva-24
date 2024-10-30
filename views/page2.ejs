@@ -1,48 +1,93 @@
-
-
-<% if(pass){ %>
-<body style="background: url('https://img.freepik.com/free-vector/beige-leafy-watercolor-background-vector_53876-136491.jpg?w=996&t=st=1703360420~exp=1703361020~hmac=dc613830600ecedc9797ee5f2f3191e8615bf01305a47eccc093fb90dc9e4faa')no-repeat center center fixed; 
-background-size: cover; ">
-    
-
-    <div class="container bg-light text-center d-flex flex-column justify-content-center align-items-center"
-    style="width: 20vw;
-    height: 20vh;
-    border: 1px solid black;
-    overflow: auto;
-     margin: 15vh 15vw;
-     border-radius: 40px;
-     box-shadow: 5px 5px 10px grey;">
-     <audio class="p-3" controls>
-        <source src="audio/quieter_song.mp3" type="audio/mpeg">
-        doesnt support
-     </audio>
-    
-    <a href="https://www.dropbox.com/scl/fi/k2cfdzhlglzp36z60ed18/quieter_song.mp3?rlkey=1rqdfz7ziw20ziqermgjarz6u&dl=1" class="btn btn-danger">Test it out</a>
-    
-    
-</div>
-
-<div class="container-fluid bg-transparent d-flex align-items-center " style="width: 20vw;
-height: 20vh;
-border: 1px solid black;
-overflow: auto;
- margin: 10vh 65vw;
- border-radius: 40px;
- box-shadow: 5px 5px 10px grey;">
-    <form class="m-4">
-        <input type="text" name="key1" placeholder="Maybe the audio should be">
-        <button onclick="clicked()" class="btn btn-secondary m-2" >a little more morse</button>
-    </form>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #242424;
+      font-family: 'Exo', sans-serif;
+      color: #00cdaf;
+    }
+    #blank {
+      height: 25px;
+    }
+    .card {
+      width: 450px;
+      background-color: #141414;
+      border: 1px solid #00cdaf;
+      box-shadow: 0 0 10px #00cdaf;
+      color: #00cdaf;
+      margin: auto;
+      padding: 16px;
+      border-radius: 8px;
+    }
+    .input-field {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      font-size: 24px;
+      padding: 10px;
+      background-color: #026f5f;
+      border-radius: 10px;
+      border: #00cdaf 2px solid;
+      color: black;
+    }
+    .input-field::placeholder {
+      color: black;
+    }
+    .button {
+      font-weight: 600;
+      font-size: 24px;
+      width: 100%;
+      background-color: #00cdaf;
+      color: #141414;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .message {
+      text-align: center;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="flex items-center justify-center min-h-screen">
+    <div class="card">
+      <div class="card-header text-center">
+        <h2 class="text-2xl font-bold mb-4">In a best case scenario, how many tosses are needed to reach 100?</h2>
+      </div>
+      <div class="card-content">
+        <img
+          src="/images/image1.jpg"
+          alt="Snake and Ladder game board"
+          class="w-full h-auto mb-4 border"
+          style="border-color: #00cdaf;
+                 max-width:100%;"
+        />
+        <form id="quizForm" action="/20WH5pAWWCsr5wrvq2vRvy8rvsNdIG" method="post">
+          <input
+            type="text"
+            id="answerInput"
+            class="input-field"
+            name="key2"
+            placeholder="Enter your answer"
+          />
+          <input type="submit" class="button" onclick="handleSubmit()" value="Submit Answer">
+          <% if (typeof error !== 'undefined') { %>
+                 <script>alert("Sorry, that's not correct. Try again!");document.location.replace("/20WH5pAWWCsr5wrvq2vRvy8rvsNdIG")</script>
+        <% } %>
+        </form>
+      </div>
+      <div class="card-footer text-center">
+        <p id="resultMessage" class="message"></p>
+      </div>
+    </div>
+  </div>
 </body>
-<script>
-function clicked(){
-alert("Look above the page");
-}
-
-</script>
-
-<% }else{ %>
-<h1>Invalid attempt</h1>
-    <% } %>
+</html>

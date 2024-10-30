@@ -1,50 +1,160 @@
-<body style="background-image: url('https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-background-size: cover; background-repeat: no-repeat; 
-background-position: center; font-family:monospace">
-    
+<% if(pass){ %>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Level 6</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet"
+    />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #242424;
+            color: #00cdaf;
+            text-align: center;
+            font-family: "Exo", "Segoe UI", Tahoma, Geneva, Verdana,
+                sans-serif;
+        }
+        h1 {
+            font-size: 48px;
+        }
+        .main h2{
+            margin: 10px;
+        }
+        audio {
+            background-color: #141414;
+            border: 1px solid white;
+            background-color: white;
+            border-radius: 10px;
+        }
+        .container {
+            height: 90vh;
+            background-color: #242424;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main {
+            height: 750px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #00cdaf;
+            background-color: #141414;
+            width: 40vw;
+            border: 5px solid black;
+            border-radius: 15px;
+            box-shadow: 0 0 10px #00cdaf;
+        }
+        input {
+            font-size: 24px;
+            padding: 10px;
+            background-color: #026f5f;
+            border-radius: 10px;
+            border: #00cdaf 2px solid;
+            color: black;
+        }
+        input::placeholder {
+            color: black;
+            font-family: "Exo", Arial, sans-serif;
+        }
+        #submitBtn {
+            border: 2px solid black;
+            border-radius: 5px;
+            font-size: 24px;
+            color: black;
+            background-color: #00cdaf;
+            font-family: "Exo";
+            font-weight: bold;
+            margin: 10px;
+            margin-top: 30px;
+            padding: 5px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #submitBtn:hover {
+            cursor: pointer;
+            background-color: black;
+            color: #00cdaf;
+        }
+        .main a {
+            color: black;
+            text-decoration: none;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-size: 24px;
+            color: black;
+            background-color: #00cdaf;
+            font-family: "Exo";
+            font-weight: bold;
+            padding: 10px;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+        .main a:hover {
+            text-decoration: none;
+            cursor: pointer;
+            background-color: black;
+            color: #00cdaf;
+        }
+        p {
+            font-size: 24px;
+        }
+        #hint{
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main">
+            <h1>Audio Challenge - Decode the Message</h1>
+            <p>
+                Download the audio file below and analyze it carefully.
+                Hidden within, you'll find the key to proceed.
+            </p>
+            <audio src="/audio/quieter_song.mp3" controls></audio>
+            <br />
+            <a href="/audio/quieter_song.mp3" download>Download Audio File</a>
+            <h2>Enter the Answer:</h2>
 
-    <div class="container text-center d-flex flex-column justify-content-center align-items-center"
-    style="width: 50vw;
-    height: 40vh;
-     margin: 25vh 25vw;
-     border-radius: 40px;
-     box-shadow: 5px 5px 10px grey;
-     background: rgba(219, 208, 208, 0.3);
--webkit-backdrop-filter: blur(10px);
-backdrop-filter: blur(10px);
-border: 1px solid rgba(255,255,255,0.15);">
+            <form>
+                <input
+                    type="text"
+                    id="answer"
+                    name="answer"
+                    placeholder="Enter your answer here..."
+                    required
+                />
+                <input  type="submit" id="submitBtn" value="Submit">
+            </form>
+            <p id="hint">Hint: Sometimes, even silence speaks in code. Pay attention to the patterns.</p>
+        </div>
+    </div>
+    <script>
 
-    <p>What if you try to rearrange the pixels in that image..</p>
-    <a href="https://www.dropbox.com/scl/fi/aqbvd0x24fywoj00fzbsz/tathva_level4.jpeg?rlkey=uqxdcf065jlimmqqxubas5f3q&dl=1" class="btn btn-light"
-    style="background: #5E5DF0;
-      border-radius: 999px;
-      box-shadow: #5E5DF0 0 10px 20px -10px;
-      box-sizing: border-box;
-      color: #d3cdcd;
-      cursor: pointer;
-      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 24px;
-      opacity: 1;
-      outline: 0 solid transparent;
-      padding: 8px 18px;
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: manipulation;
-      width: fit-content;
-      word-break: break-word;
-      border: 0;">Download Here</a>    
-    
-    <form class="m-4" action="/page5" method="post">
-        <input type="text" name="key5" placeholder="Enter key">
-        <input type="submit" class="btn btn-secondary" value="Submit">
-        <% if (typeof error !== 'undefined') { %>
-            <script>
-                alert('Wrong key');
-            </script>
-        <% } %>
-    </form>
-</div>
+            document
+            .getElementById("submitBtn")
+            .addEventListener("click", function (event) {
+                clicked();
+            });
+
+            function clicked(){
+                alert("Look above the page");
+            }
+    </script>
 </body>
-
+<% }else{ %>
+<h1>Invalid attempt</h1>
+<% } %>

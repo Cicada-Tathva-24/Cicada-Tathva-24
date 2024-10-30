@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore your system</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Exo", Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            background-color: #242424;
+            color: #00cdaf;
+        }
+        .container h2 {
+            text-align: left;
+            padding-left: 32px;
+        }
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background-color: #141414;
+            width: 800px;
+            height: 550px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px #00cdaf;
+        }
+        .main {
+            margin: auto;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #00cdaf;
+            background-color: #141414;
+            width: 40vw;
+            border: 5px solid black;
+            border-radius: 15px;
+            box-shadow: 0 0 10px #00cdaf;
+            padding: 20px;
+            text-align: center;
+        }
+        #submitBtn {
+            border: 2px solid black;
+            border-radius: 5px;
+            font-size: 24px;
+            color: black;
+            background-color: #00cdaf;
+            font-family: "Exo";
+            font-weight: bold;
+            margin: 10px;
+            margin-bottom: 0px;
+            padding: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        #submitBtn:hover {
+            cursor: pointer;
+            background-color: black;
+            color: #00cdaf;
+        }
+        #answer {
+            width: 90%;
+            height: 50px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            text-wrap: wrap;
+            font-size: 24px;
+            border: 2px solid #00cdaf;
+            background-color: #026f5f;
+            border-radius: 10px;
+        }
+        .container input::placeholder {
+            color: black;
+            font-family: "Exo", Arial, sans-serif;
+        }
+        .container h1 {
+            font-size: 48px;
+            margin: 10px;
+            margin-bottom: 35px;
+        }
+        #para {
+            font-size: 24px;
+            padding-left: 50px;
+            padding-right: 50px;
+            margin: 20px;
+            margin-top: 40px;
+        }
+        #hint {
+            font-size: 16px;
+        }
+        #download-text {
+            color: black;
+            text-decoration: none;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-size: 24px;
+            color: black;
+            background-color: #00cdaf;
+            font-family: "Exo";
+            font-weight: bold;
+            margin: 35px;
+            padding: 10px;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+        #download-text:hover {
+            cursor: pointer;
+            background-color: black;
+            color: #00cdaf;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Find the Hidden Answer</h1>
+        <a href="/files/binary.o" download id="download-text">Download the file</a>
+
+        <p id="para">A file is ready for you to explore. Download it and uncover the answer by decoding the information contained within.</p>
+
+        <h2>Enter the Answer:</h2>
+
+        <!-- <form action="/submit" method="POST">
+            <input type="text" id="answer" name="answer" placeholder="Enter your answer here..." required>
+            <button type="submit">Submit</button>
+        </form> -->
+        <form action="/794JBR5aLKb080ddWCO4SFE0gk5uqk" method="post">
+            <input type="text" id="answer" name="key7" placeholder="Enter your answer here...">
+            <br>
+        <input type="submit" id="submitBtn" value="Submit">
+        <% if (typeof error !== 'undefined') { %>
+                 <script>alert("Sorry, that's not correct. Try again!");document.location.replace("/794JBR5aLKb080ddWCO4SFE0gk5uqk")</script>
+        <% } %>
+        </form>
+
+        <p id="hint">
+            Hint: log<sub><sub>pid</sub>(Sys)
+        </p>
+    </div>
+
+</body>
+</html>

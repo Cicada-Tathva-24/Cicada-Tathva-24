@@ -30,22 +30,16 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.set('layout','layout.ejs');
 
-//app.set("layout home", false);
-//app.use('/auth',authRoutes);
-
-
-//GET
 app.get('/admin',async (req,res)=>{
-  var sel = await Log.find({},{_id:0,email:1,start:1,level1:1,level2:1,level3:1,level4:1,level5:1},{lean: true});
+  var sel = await Log.find({},{_id:0,email:1,start:1,level1:1,level2:1,level3:1,level4:1,level5:1,level6:1,level7:1,level8:1},{lean: true});
   let i=0,t_end;
   var res_arr=[];
   while (i < sel.length){
     let one=sel[i],lvl=0;
 
     for(var el in one){
-      
+
 
       console.log("Key:",el);
       console.log("Vlaue:",one[el]);
@@ -53,7 +47,7 @@ app.get('/admin',async (req,res)=>{
       console.log("End:key",el);
       console.log("End:",t_end);
       lvl++;
-      // break; 
+      // break;
     }
     console.log(i," ",one);
     let t_st=sel[i]["start"].getTime();
@@ -78,8 +72,7 @@ res_arr.sort((a, b) => {
 });
 
 console.log(res_arr);
-  //res.send(sel);
-  res.render('../views_rem/admin',{res_arr,layout:'../views_rem/admin'});
+res.render('../views_rem/admin',{res_arr,layout:'../views_rem/admin'});
 })
 
 app.get('/',(req,res)=>{
@@ -99,72 +92,99 @@ app.get('/profile',checkAuthenticated,(req,res)=>{
   console.log("Login of " + myDate1.toLocaleString(),req.user.email);
     //console.log(req.user);
   res.render('profile',{user:req.user});
-    
+
 })
 
-app.get('/page1',checkAuthenticated,(req,res)=>{
+app.get('/1PVKQGGbqvr66wRT22Yf1NpCqc9kyE',checkAuthenticated,(req,res)=>{
   console.log('Page 1 '+req.user.email);
   const myDate1= new Date();
-  localStorage.set("datestart",myDate1);
 
   res.render('page1',{user:req.user,pass:'12349'});
-  
+
 });
 
-
-
-app.get('/page2',checkAuthenticated,(req,res)=>{
+app.get('/20WH5pAWWCsr5wrvq2vRvy8rvsNdIG',checkAuthenticated,(req,res)=>{
   const myDate2= new Date();
-//  var datestr=localStorage.get("dt1");
-//  var dateorg=new Date(datestr);
-
   console.log("Page 2 start "+myDate2.toLocaleTimeString());
   res.render('page2',{user:req.user,pass:'#@!23'});
-  
+
 })
 
-app.get('/almond',checkAuthenticated,(req,res)=>{
-res.redirect('/page3');
-});
-
-
-app.get('/page3',checkAuthenticated,async (req,res)=>{
-  console.log('Page 3 '+req.user.email);
+app.get('/3bVtxXADjx24noayRNSwEyeWxQU6yv',checkAuthenticated,async (req,res)=>{
   const myDate3= new Date();
+  console.log("Page 3 start "+myDate3.toLocaleTimeString());
+  res.render('page3',{user:req.user,pass:'#@!2233'});
+
+})
+
+app.get('/4VgYZZCnBYTraJMGv57ZHFf4rJuVah',checkAuthenticated,async (req,res)=>{
+  console.log('Page 4 '+req.user.email);
+  const myDate4= new Date();
+
+  res.render('page4',{user:req.user,pass:'9957'});
+
+})
+
+app.get('/51YrDppBrcAJC3cDUTCcDx1MCkBeaJ',checkAuthenticated,async (req,res)=>{
+  console.log('Page 5 '+req.user.email);
+  const myDate5= new Date();
   let logfind=await Log.findOne({email:req.user.email});
 
-  if (logfind && logfind.level2) {
-    console.log(`Level2 already registered for ${req.user.email}`);
-    res.render('page3',{user:req.user,pass:'#@!2233'});  } 
+  if (logfind && logfind.level4) {
+    console.log(`Level4 already registered for ${req.user.email}`);
+    res.render('page5',{user:req.user,pass:'XgwuLkBCRd'});  }
   else {
   try {
-    const doc = await Log.findOneAndUpdate({ email: req.user.email }, { level2: myDate3 }, { new: true });
-    console.log("Doc for level 2 " + doc);
+    const doc = await Log.findOneAndUpdate({ email: req.user.email }, { level4: myDate5 }, { new: true });
+    console.log("Doc for level 4 " + doc);
   } catch (err) {
     console.log("Something wrong when updating data!");
   }
 
-  res.render('page3',{user:req.user,pass:'#@!2233'});
+  res.render('page5',{user:req.user,pass:'XgwuLkBCRd'});
 }
 });
 
-app.get('/page4',checkAuthenticated,async (req,res)=>{
-  console.log('Page 4 '+req.user.email);
-  const myDate3= new Date();
+app.get('/almond',checkAuthenticated,async (req,res)=>{
+  console.log('Page 6 '+req.user.email);
+  const myDate6= new Date();
+  let logfind=await Log.findOne({email:req.user.email});
 
-  res.render('page4',{user:req.user,pass:'9957'});
-  
-})
-
-app.get('/page5',checkAuthenticated,(req,res)=>{
-
-res.render('page5',{user:req.user,pass:'97'});
+  if (logfind && logfind.level5) {
+    console.log(`Level5 already registered for ${req.user.email}`);
+    res.redirect('/6OzAn7NEcLprJMgY6MICdXrNnCqDIR');}
+  else {
+  try {
+    const doc = await Log.findOneAndUpdate({ email: req.user.email }, { level5: myDate6 }, { new: true });
+    console.log("Doc for level 5 " + doc);
+  } catch (err) {
+    console.log("Something wrong when updating data!");
+  }
+res.redirect('/6OzAn7NEcLprJMgY6MICdXrNnCqDIR');
+  }
 });
 
+app.get('/6OzAn7NEcLprJMgY6MICdXrNnCqDIR',checkAuthenticated,(req,res)=>{
+  const myDate6= new Date();
+  console.log("Page 6 start "+myDate6.toLocaleTimeString());
+  res.render('page6',{user:req.user,pass:'#@!23'});
+})
+
+app.get('/794JBR5aLKb080ddWCO4SFE0gk5uqk',checkAuthenticated,(req,res)=>{
+  const myDate7= new Date();
+  console.log("Page 7 start "+myDate7.toLocaleTimeString());
+  res.render('page7',{user:req.user,pass:'#@!23'});
+})
+
+app.get('/8UNw3FRV3jRTNUw9goRAl3fyXfwpR1',checkAuthenticated,(req,res)=>{
+  const myDate8= new Date();
+  console.log("Page 8 start "+myDate8.toLocaleTimeString());
+  res.render('page8',{user:req.user,pass:'#@!23'});
+})
 
 //POST
 app.post('/register',checkNotAuthenticated,(req,res)=>{
-    
+
     var user=new User({
         name:req.body.name,
         email:req.body.email,
@@ -183,12 +203,11 @@ app.post('/login',checkNotAuthenticated,passport.authenticate('local',{
 app.post('/profile',async (req,res)=>{
   //console.log(req.user);
   var date1=new Date();
- 
+
   var log=new Log({
     email:req.user.email,
     start:date1
 })
-
 
  let logfind=await Log.findOne({email:req.user.email});
  console.log("Found one",logfind);
@@ -196,7 +215,7 @@ app.post('/profile',async (req,res)=>{
  if(!logfind){
  await log.save().then(()=>{
     console.log('Email created');
-    res.redirect('/page1');
+    res.redirect('/1PVKQGGbqvr66wRT22Yf1NpCqc9kyE');
 }).catch((err) => {
   console.log("err here"+err);
   res.send(err.message);
@@ -204,134 +223,170 @@ app.post('/profile',async (req,res)=>{
 }
 else{
   console.log(req.user.email,"Exists");
-  res.redirect('/page1');
+  res.redirect('/1PVKQGGbqvr66wRT22Yf1NpCqc9kyE');
 }
-
-
-// var key=req.body.key1;
-//   if(key=='page2'){
-//res.redirect('/page1');
-  // }
-    
 });
 
-app.post('/page3',async (req,res)=>{
+app.post('/1PVKQGGbqvr66wRT22Yf1NpCqc9kyE',async (req,res)=>{
+    const myDate1= new Date();
+    let logfind=await Log.findOne({email:req.user.email});
+
+    if (logfind && logfind.level1) {
+    console.log(`Level1 already registered for ${req.user.email}`);
+    res.redirect('/20WH5pAWWCsr5wrvq2vRvy8rvsNdIG');
+  }
+  else {
+    try {
+      const doc = await Log.findOneAndUpdate({ email: req.user.email }, { level1: myDate1 }, { new: true });
+      console.log(`Doc level 1 is ${doc}`);
+      res.redirect('/20WH5pAWWCsr5wrvq2vRvy8rvsNdIG');
+    } catch (err) {
+      console.log("Something wrong when updating data!");
+    }
+
+  }
+});
+
+app.post('/20WH5pAWWCsr5wrvq2vRvy8rvsNdIG',async (req,res)=>{
+  var key=req.body.key2;
+    if(key==process.env.KEY_2){
+    const myDate2= new Date();
+    let logfind=await Log.findOne({email:req.user.email});
+
+    if (logfind && logfind.level2) {
+      console.log(`Level2 already registered for ${req.user.email}`);
+      res.redirect('/3bVtxXADjx24noayRNSwEyeWxQU6yv');
+    }
+    else {
+    try {
+      const doc = await Log.findOneAndUpdate({ email: req.user.email }, { level2: myDate2 }, { new: true });
+      console.log(`Doc level 2 is ${doc}`);
+      res.redirect('/3bVtxXADjx24noayRNSwEyeWxQU6yv');
+    } catch (err) {
+      console.log("Something wrong when updating data!");
+    }
+
+
+  }
+    }
+    else{
+      res.render('page2',{error:'Wrong key',user:req.user,pass:'9957'});
+    }
+  });
+
+app.post('/3bVtxXADjx24noayRNSwEyeWxQU6yv',async (req,res)=>{
   var key=req.body.key3;
     if(key==process.env.KEY_3){
     const myDate3= new Date();
     let logfind=await Log.findOne({email:req.user.email});
 
     if (logfind && logfind.level3) {
-    console.log(`Level3 already registered for ${req.user.email}`);
-    res.redirect('/page4');
-  } 
-  else {
+      console.log(`Level3 already registered for ${req.user.email}`);
+      res.redirect('/4VgYZZCnBYTraJMGv57ZHFf4rJuVah');
+    }
+    else {
     try {
       const doc = await Log.findOneAndUpdate({ email: req.user.email }, { level3: myDate3 }, { new: true });
       console.log(`Doc level 3 is ${doc}`);
-      res.redirect('/page4');
+      res.redirect('/4VgYZZCnBYTraJMGv57ZHFf4rJuVah');
     } catch (err) {
       console.log("Something wrong when updating data!");
     }
-  
+
+
   }
-     
     }
     else{
-    
       res.render('page3',{error:'Wrong key',user:req.user,pass:'9957'});
     }
   });
-  
 
-app.post('/page4',async (req,res)=>{
-var key=req.body.key4;
-  if(key==process.env.KEY_4){
-  const myDate4= new Date();
-  let logfind=await Log.findOne({email:req.user.email});
-
-  if (logfind && logfind.level4) {
-    console.log(`Level4 already registered for ${req.user.email}`);
-    res.redirect('/page5');
-  } 
-  else {
-  try {
-    const doc = await Log.findOneAndUpdate({ email: req.user.email }, { level4: myDate4 }, { new: true });
-    console.log(`Doc level 4 is ${doc}`);
-    res.redirect('/page5');
-  } catch (err) {
-    console.log("Something wrong when updating data!");
-  }
-
-
-   
-  }}
-  else{
-  
-    res.render('page4',{error:'Wrong key',user:req.user,pass:'9957'});
-  }
-});
-
-
-
-app.post('/page5',async (req,res)=>{
-  var key=req.body.key5;
-    if(key==process.env.KEY_5){
-    const myDate5= new Date();
-    localStorage.set("date5",myDate5);
+app.post('/6OzAn7NEcLprJMgY6MICdXrNnCqDIR',async (req,res)=>{
+  var key=req.body.key6;
+    if(key==process.env.KEY_6){
+    const myDate6= new Date();
     let logfind=await Log.findOne({email:req.user.email});
 
-    if (logfind && logfind.level5) {
-      console.log(`Level5 already registered for ${req.user.email}`);
-      res.render('profile',{user:req.user,sts:'Completed'});    } 
+    if (logfind && logfind.level6) {
+      console.log(`Level6 already registered for ${req.user.email}`);
+      res.redirect('/794JBR5aLKb080ddWCO4SFE0gk5uqk');
+    }
     else {
     try {
-      const doc = await Log.findOneAndUpdate({ email: req.user.email }, { level5: myDate5 }, { new: true });
-      console.log(`Doc level 5 is ${doc}`);
+      const doc = await Log.findOneAndUpdate({ email: req.user.email }, { level6: myDate6 }, { new: true });
+      console.log(`Doc level 6 is ${doc}`);
+      res.redirect('/794JBR5aLKb080ddWCO4SFE0gk5uqk');
+    } catch (err) {
+      console.log("Something wrong when updating data!");
+    }
+
+
+  }
+    }
+    else{
+      res.render('page6',{error:'Wrong key',user:req.user,pass:'9957'});
+    }
+  });
+
+app.post('/794JBR5aLKb080ddWCO4SFE0gk5uqk',async (req,res)=>{
+  var key=req.body.key7;
+    if(key==process.env.KEY_7){
+    const myDate7= new Date();
+    let logfind=await Log.findOne({email:req.user.email});
+
+    if (logfind && logfind.level7) {
+      console.log(`Level7 already registered for ${req.user.email}`);
+      res.redirect('/8UNw3FRV3jRTNUw9goRAl3fyXfwpR1');
+    }
+    else {
+    try {
+      const doc = await Log.findOneAndUpdate({ email: req.user.email }, { level7: myDate7 }, { new: true });
+      console.log(`Doc level 7 is ${doc}`);
+      res.redirect('/8UNw3FRV3jRTNUw9goRAl3fyXfwpR1');
+    } catch (err) {
+      console.log("Something wrong when updating data!");
+    }
+
+
+  }
+    }
+    else{
+      res.render('page7',{error:'Wrong key',user:req.user,pass:'9957'});
+    }
+  });
+
+app.post('/8UNw3FRV3jRTNUw9goRAl3fyXfwpR1',async (req,res)=>{
+  var key=req.body.key8;
+    if(key==process.env.KEY_8){
+    const myDate8= new Date();
+    let logfind=await Log.findOne({email:req.user.email});
+
+    if (logfind && logfind.level8) {
+      console.log(`Level8 already registered for ${req.user.email}`);
+      res.render('profile',{user:req.user,sts:'Completed'});    }
+    else {
+    try {
+      const doc = await Log.findOneAndUpdate({ email: req.user.email }, { level8: myDate8 }, { new: true });
+      console.log(`Doc level 8 is ${doc}`);
       res.render('profile',{user:req.user,sts:'Completed'});
     } catch (err) {
       console.log("Something wrong when updating data!");
     }
-  
-  
+
+
   }
     }
     else{
-    
-      res.render('page5',{error:'Wrong key',user:req.user,pass:'9957'});
+
+      res.render('page8',{error:'Wrong key',user:req.user,pass:'9957'});
     }
   });
-
-
-app.post('/page1',async (req,res)=>{
-
-  console.log('Page 1 Post '+req.user.email);
-  const myDate1= new Date();
-  let logfind=await Log.findOne({email:req.user.email});
-
-  if (logfind && logfind.level1) {
-    console.log(`Level1 already registered for ${req.user.email}`);
-    res.redirect('/page2');
-  } 
-  else {
-  try {
-    const doc = await Log.findOneAndUpdate({ email: req.user.email }, { level1: myDate1 }, { new: true });
-    console.log(`Doc Page1 is ${doc}`);
-    res.redirect('/page2');
-  } catch (err) {
-    console.log("Something wrong when updating data!");
-    res.status(500).send('An error occurred while updating data.');
-
-  }
-  }
-
-});
 
 //Logout
 app.delete('/logout', (req, res) => {
     req.logout(function(err) {
-        if (err) { 
-          return next(err); 
+        if (err) {
+          return next(err);
           }
         res.redirect('/login');
       });
@@ -341,10 +396,10 @@ function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
       return next()
     }
-  
+
     res.redirect('/login')
   }
-  
+
   function checkNotAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
       return res.redirect('/profile')

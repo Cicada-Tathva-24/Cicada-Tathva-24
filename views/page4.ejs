@@ -1,35 +1,85 @@
-
-
-<% if(pass){ %>
-<body style="background: url('https://img.freepik.com/free-photo/neon-tropical-monstera-leaf-banner_53876-138943.jpg?w=1060&t=st=1703361110~exp=1703361710~hmac=006fc47fc80cafe91dac5dbbc78a71b265cd6217676bb70f07a02379aadbec9d')no-repeat center center fixed;
-background-size: cover; font-family:monospace">
-    
-
-    <div class="container bg-light text-center d-flex flex-column justify-content-center align-items-center"
-    style="width: 30vw;
-    height: 35vh;
-    border: 1px solid black;
-     margin: 25vh 25vw;
-     border-radius: 200px;
-     box-shadow: 5px 5px 10px grey;
-     filter: invert(1)">
-
-    <p>ITS zipped up.</p>
-    <p style="font-family: serif;">Find the Key</p>
-    <a href="https://www.dropbox.com/scl/fi/ssg49jptmym0wqxjo1x97/open-me.zip?rlkey=rjo9w2sic8oscc7f5i8mfjfl6&dl=1" class="btn btn-warning">Download Here</a>
-    
-    <form class="m-4" action="/page4" method="post">
-        <input type="text" name="key4" placeholder="Enter key">
-        <input type="submit" class="btn btn-danger" value="Submit">
-        <% if (typeof error !== 'undefined') { %>
-            <script>
-                alert('Wrong key');
-            </script>
-        <% } %>
-    </form>
-</div>
-</body>
-<% }else{ %>
-<h1>Invalid attempt</h1>
-    <% } %>
-
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Download Page</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+                background-color: #242424;
+                color: #00cdaf;
+                font-family: "Exo", Arial, sans-serif;
+                margin: 0;
+                height: 100vh;
+                text-align: center;
+                display: block;
+            }
+            h1 {
+                font-size: 48px;
+                margin: 10px;
+            }
+            p{
+                font-size: 16px;
+                margin: 5px;
+                padding: 5px;
+                margin-bottom: 40px;
+            }
+            .contenty {
+                height: 300px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: #00cdaf;
+                background-color: #141414;
+                padding: 20px;
+                max-width: 600px;
+                width: 100%;
+                border: 5px solid black;
+                border-radius: 15px;
+                box-shadow: 0 0 10px #00cdaf;
+            }
+            .down {
+                border: 2px solid black;
+                border-radius: 5px;
+                font-size: 24px;
+                color: black;
+                background-color: #00cdaf;
+                font-family: "Exo";
+                font-weight: bold;
+                margin: 10px;
+                margin-top: 30px;
+                padding: 5px;
+                padding-left: 10px;
+                padding-right: 10px;
+                text-decoration: none;
+            }
+            .down:hover {
+                text-decoration: none;
+                cursor: pointer;
+                background-color: black;
+                color: #00cdaf;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="contenty">
+            <% if (pass) { %>
+            <h1>Too many URLs</h1>
+            <p>
+                Use the below button to download a file that contains a list of
+                URLs. One of them leads to the next puzzle. Find it out!
+            </p>
+            <a href="/files/urls.txt" class="down" download>Download File</a>
+            <% } else { %>
+            <h1>Invalid attempt</h1>
+            <% } %>
+        </div>
+    </body>
+</html>
